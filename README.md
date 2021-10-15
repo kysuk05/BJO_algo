@@ -12,4 +12,10 @@
 - 파일명은 문제 번호와 같습니다. 다만 문제와 관련없이 직접 구현한 알고리즘인 경우 파일의 이름은 구현한 알고리즘명과 같습니다. (예 : 스택.py)
 
 
-백준 계정 https://www.acmicpc.net/user/tong39
+
+
+
+
+
+백준 프로필) https://www.acmicpc.net/user/tong39
+이메일) kysuk05@gmail.com
