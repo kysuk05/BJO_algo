@@ -11,16 +11,42 @@ from collections import deque
 
 queue = deque()
 
-n = input()
-check = [0]*n
+n = int(input())
+check = [0]*(n+1)
 
-def()
-while queue:
-    x = queue.popleft()
-    if x == 1:
-        return(check[x])
-    for i in range(3):
-        if i == 0:
-            if x%3 == 0:
-                nx = x//3
-                check[nx] = check[x]+1
+def bfs():
+    while queue:
+        x = queue.popleft()
+        if x == 1:
+            return(check[x])
+        for i in range(3):
+            if i == 0:
+                if x%3 == 0:
+                    nx = x//3
+                    if check[nx] != 0:
+                        continue
+                    else:
+                        check[nx] = check[x]+1
+                        queue.append((nx))
+                else:
+                    continue
+            if i == 1:
+                if x%2 == 0:
+                    nx = x//2
+                    if check[nx] != 0:
+                        continue
+                    else:
+                        check[nx] = check[x]+1
+                        queue.append((nx))
+                else:
+                    continue
+            if i == 2:
+                nx = x-1
+                if check[nx] != 0:
+                        continue
+                else:
+                    check[nx] = check[x]+1
+                    queue.append((nx))
+queue.append((n))
+
+print(bfs())
