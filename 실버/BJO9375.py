@@ -30,7 +30,6 @@ for i in range(n):
             check.append([k[1],1])
     
     ans = 1
-    print(check)
     for m in range(len(check)):
         ans *= (check[m][1]+1)
     print(ans-1)
