@@ -13,14 +13,29 @@
 
 # 다음은 N=3일 때의 예이다.
 
+
+
+# 입력
 # 첫째 줄에 정수 N, r, c가 주어진다.
 
 # 출력
 # r행 c열을 몇 번째로 방문했는지 출력한다.
 
 
+n,r,c = map(int,input().split())
+
 def z(n,r,c):
-    if n == 0:
-        return 0
+    if n == 1:
+        if r == 0 and c == 0:
+            return 0
+        elif r == 0 and c == 1:
+            return 1
+        elif r == 1 and c == 0:
+            return 2
+        elif r == 1 and c == 1:
+            return 3
+    
     else:
-        
+        return z(n-1,r%2,c%2)+4*z(n-1,r//2,c//2)
+
+print(z(n,r,c))
