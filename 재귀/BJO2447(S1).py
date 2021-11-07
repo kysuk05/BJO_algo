@@ -10,21 +10,31 @@
 
 
 n = int(input())
-num = 0
-while n != 1:
-    num +=1
-    n = n // 3
-print(num)
-def star(num):
-    if num == 1:
-        print('*'*3)
-        print('*'+' '+'*')
-        print('*'*3)
-    else:
-        for i in range(num+1):
-            print(star(num-1),end='')
-        print(star(num-1)+' '+star(num-1))
-        for i in range(num+1):
-            print(star(num-1),end='')
 
-star(num)
+graph = [[0 for a in range(n)]for b in range(n)]
+
+x = 0
+y = 0
+
+def star(n,x,y):
+    if n == 1:
+        if x % 3 == 1 and y % 3 == 1:
+            graph[x][y] = ' '
+        else:
+            graph[x][y] = '*'
+    else:
+        for i in range(3):
+            for j in range(3):
+                if i != 1 or j != 1:
+                    star(n//3,x+n//3*i,y+n//3*j)
+
+star(n,x,y)
+
+
+for c in range(n):
+    for d in range(n):
+        if graph[c][d] == '*':
+            print('*',end='')
+        else:
+            print(' ',end='')
+    print()
