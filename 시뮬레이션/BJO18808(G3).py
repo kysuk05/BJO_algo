@@ -25,41 +25,64 @@ for i in range(k):
     x,y = map(int,sys.stdin.readline().split())
     for j in range(x):
         li.append(list(map(int,sys.stdin.readline().split())))
-    queue.append(x,y,li)
+    queue.append((x,y,li))
 
 
 graph = [[0 for a in range(m)]for b in range(n)]
 
 
 
-def fun1():
-    while queue:
-        x,y,qu = queue.popleft
+    
+
+def che(x,y,qu,graph,check):
     for i in range(n):
         for j in range(m):
-            if graph[i][j] == 0:
-                ch = []
-                check = 0
-                for a in range(x):
-                    for b in range(y):
-                        if check == 1:
-                            break
-                        if a == x-1 and b == y-1 and check == 0:
-                            while ch:
-                                n1,n2 = ch.pop()
-                                graph[n1][n2] == 1
-                        if qu[a][b] == 1:
-                            if graph[i+a][j+b] == 0:
-                                ch.append((i+a,j+b))
+            if i+x-1 >= n or j+y-1 >= m:
+                continue
+            ch = []
+            check = 0
+            for a in range(x):
+                for b in range(y):
+                    if qu[a][b] == 1:
+                        if graph[i+a][j+b] == 0:
+                            ch.append((i+a,j+b))
                         else:
                             check = 1
                             break
-                    if check == 1:
-                        break
+                    if a == x-1 and b == y-1 and check == 0:
+                        while ch:
+                            n1,n2 = ch.pop()
+                            graph[n1][n2] = 1
+                        return x,y,qu,graph,check
+                if check == 1:
+                    break
+
                 
-                
+def mv(x,y,qu):
+    qu1 = [[0 for a in range(x)] for b in range(y)]
+    for i in range(x):
+        for j in range(y):
+            if qu[i][j] == 1:
+                qu1[j][x-i-1] = 1
+    
+    return y,x,qu1
                 
 
+while queue:
+    x,y,qu = queue.popleft()
+    check = 0
+    for move in range(4):
+        k = che(x,y,qu,graph,check)
+        if k:
+            x,y,qu,graph,check = k
+            break
+        x,y,qu = mv(x,y,qu)
 
-                
+ans = 0
+for i in range(n):
+    for j in range(m):
+        if graph[i][j] == 1:
+            ans +=1
+
+print(ans)
 
