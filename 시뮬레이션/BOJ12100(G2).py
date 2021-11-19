@@ -37,6 +37,7 @@ def move(graph):
         else:
             for a in range(n):
                 graph[i][a] = 0
+    return graph
 
 
 def rotate(graph):
@@ -47,11 +48,28 @@ def rotate(graph):
     return graph1
 
 
+ans = []
+def main(graph,a):
+    if a == 0:
+        for i in range(n):
+            for j in range(n):
+                if ans:
+                    if ans[-1] < graph[i][j]:
+                        ans.append(graph[i][j])
+                else:
+                    ans.append(graph[i][j])
 
-for i in range(5):
-    graph = deepcopy(graph)
-    for j in range(4):
-        graph = rotate(graph)
-        move(graph)
-    
-    print(graph)
+    else:
+        graph1 = rotate(deepcopy(graph))
+        graph2 = rotate(deepcopy(graph1))
+        graph3 = rotate(deepcopy(graph2))
+        main(move(graph),a-1)
+        main(move(graph1),a-1)
+        main(move(graph2),a-1)
+        main(move(graph3),a-1)
+
+
+main(graph,5)
+
+print(ans[-1])
+
