@@ -33,7 +33,7 @@ for i in range(num):
 
 if num > 3:
 
-    ans = [0,li[0],li[0]+li[1],li[1]+li[2]]
+    ans = [0,li[0],li[0]+li[1],max(li[2]+li[1],li[0]+li[2])]
 
 
     for j in range(4,num+1):
@@ -43,7 +43,7 @@ if num > 3:
     print(ans[-1])
 
 elif num == 3:
-    print(max(li[2]+li[1],li[0]+li[1],li[0]+li[2]))
+    print(max(li[2]+li[1],li[0]+li[2]))
 elif num == 2:
     print(li[0]+li[1])
 elif num == 1:
