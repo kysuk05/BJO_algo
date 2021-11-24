@@ -12,21 +12,8 @@ import sys
 n = int(sys.stdin.readline())
 
 graph = list(map(int,sys.stdin.readline().split()))
+ans = [graph[0]]
+for i in range(1,len(graph)):
+    ans.append(max(ans[-1]+graph[i],graph[i]))
 
-sum = graph[0]
-ans = [sum]
-for i in range(1,n): 
-    if graph[i] < 0:
-        if ans[-1] < sum:
-            ans.append(sum)
-        sum = graph[i]
-    else:
-        if sum < 0:
-            sum = graph[i]
-        
-        else:
-            sum += graph[i]
-
-if sum > ans[-1]:
-    ans.append(sum)
-print(ans)
+print(max(ans))
