@@ -23,4 +23,10 @@ n = int(sys.stdin.readline())
 li = []
 for i in range(n):
     li.append(list(map(int,sys.stdin.readline().split())))
-ans = []
+ans = [0]*(n+1)
+
+for j in range(n+1):
+    for k in range(j):
+        if k+li[k][0] <= j:
+            ans[j] = max(ans[j],ans[k]+li[k][1])
+print(ans[-1])
