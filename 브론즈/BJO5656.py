@@ -20,34 +20,34 @@ while True:
         break
     if s[1] == '>=':
         if int(s[0]) >= int(s[2]):
-            res += 'True'
+            res += 'true'
         else:
-            res += 'False'
+            res += 'false'
     elif s[1] == '>':
         if int(s[0]) > int(s[2]):
-            res += 'True'
+            res += 'true'
         else:
-            res += 'False'
+            res += 'false'
     if s[1] == '<=':
         if int(s[0]) <= int(s[2]):
-            res += 'True'
+            res += 'true'
         else:
-            res += 'False'
+            res += 'false'
     elif s[1] == '<':
         if int(s[0]) < int(s[2]):
-            res += 'True'
+            res += 'true'
         else:
-            res += 'False'
+            res += 'false'
     if s[1] == '==':
         if int(s[0]) == int(s[2]):
-            res += 'True'
+            res += 'true'
         else:
-            res += 'False'
+            res += 'false'
     if s[1] == '!=':
         if int(s[0]) != int(s[2]):
-            res += 'True'
+            res += 'true'
         else:
-            res += 'False'
+            res += 'false'
     
     print('Case '+str(n)+': '+res)
     n+=1

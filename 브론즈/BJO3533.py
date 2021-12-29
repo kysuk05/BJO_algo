@@ -21,7 +21,7 @@ for i in lis:
 
 lis = list(combinations(li,3))
 for i in lis:
-    if i[0] == 1 or i[1] == 1:
+    if i[0] == 1 or i[1] == 1 or i[2] == 1:
         ans.append(1)
     else:
         ans.append(0)
