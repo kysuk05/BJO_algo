@@ -16,11 +16,12 @@ for i in range(n):
     li.append(int(sys.stdin.readline()))
 
 
-end = min(li)
+end = sum(li)
 st = 0
 ans = 0
+
 while True:
-    num = end+st//2
+    num = (end+st+1)//2
     if st == end:
         print(end)
         break
