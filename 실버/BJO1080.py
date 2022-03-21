@@ -33,7 +33,6 @@ else:
                             arr_A[x][y] = '1'
                         else:
                             arr_A[x][y] = '0'
-    print(arr_A,arr_B)
     if arr_A == arr_B:
         print(ans)
     else:
